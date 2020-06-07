@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  postgres1:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_DB=suricata
+      - POSTGRES_USER=fluent
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_PORT=5432
+      - POSTGRES_INITDB_ARGS="--auth-local=trust"
+      - TZ=Europe/Moscow
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgresql:/var/lib/postgresql/data
+
+  fluentd1:
+    build: .
+    volumes:
+      - ./fluent.conf:/fluentd/etc/fluent.conf
+      - /var/log/suricata/eve.json:/suricata/eve.json
+
+networks:
+  suricata:
+

@@ -11,6 +11,7 @@ RUN apk add --no-cache --update --virtual .build-deps \
  && apk add postgresql-client \
  && apk add postgresql-dev \
  && gem install pg \
+ && gem install fluent-plugin-json-transform \
  && gem uninstall tzinfo -v 2.0.2 \
  && gem sources --clear-all \
  && apk del .build-deps \

@@ -1,5 +1,6 @@
 CREATE TABLE alerts (
 	alertdt TIMESTAMP NOT NULL,
-	details JSON
+	signature VARCHAR(255),
+	category VARCHAR(255)
 );
 

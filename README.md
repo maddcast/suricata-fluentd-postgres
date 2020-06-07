@@ -5,7 +5,7 @@ bash ./suricata.sh
 cd ..
 ```
 
-# Enable track alerts
+# Enable alerts tracking
 
 ```
 cd track-alerts

@@ -9,7 +9,7 @@ cd ..
 
 ```
 cd track-alerts
-docker-compose up -d
+docker-compose up --build -d
 ```
 
 # Generate events
